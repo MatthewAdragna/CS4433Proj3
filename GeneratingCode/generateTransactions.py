@@ -4,8 +4,6 @@ import string
 
 MBLINES = (int)(100000 / 1.7)
 
-customers = 0
-
 
 # Assuming that each line is approximately 10 bytes long
 def main():
@@ -29,14 +27,13 @@ def main():
         default="../input/",
     )
     args = parser.parse_args()
-    customers = args.customers
     with open(args.path + "customers.csv", "w") as custFile:
         for i in range(0, args.customers):
             custFile.write(generateCustomer(i))
 
     with open(args.path + "purchases.csv", "w") as purchFile:
         for i in range(0, args.purchases):
-            purchFile.write(generatePurchase(i))
+            purchFile.write(generatePurchase(i,args.customers))
 
 
 def generateCustomer(id):
@@ -49,10 +46,10 @@ def generateCustomer(id):
     )
 
 
-def generatePurchase(id):
+def generatePurchase(id,max):
     return "{},{},{},{},{}\n".format(
         id,
-        random.randint(0, customers),
+        random.randint(0, max),
         random.uniform(10, 2000),
         random.randint(1, 15),
         "".join(random.choices(string.ascii_lowercase, k=random.randint(20, 50))),
