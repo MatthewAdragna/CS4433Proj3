@@ -28,10 +28,12 @@ def main():
     )
     args = parser.parse_args()
     with open(args.path + "customers.csv", "w") as custFile:
+        # custFile.write("ID,Name,Age,CountryCode,Salary\n")
         for i in range(0, args.customers):
             custFile.write(generateCustomer(i))
 
     with open(args.path + "purchases.csv", "w") as purchFile:
+        # purchFile.write("TransID,CustID,TransTotal,TransNumItems,TransDesc\n")
         for i in range(0, args.purchases):
             purchFile.write(generatePurchase(i,args.customers))
 
