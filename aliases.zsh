@@ -8,3 +8,5 @@ alias spCluster='~/spark/sbin/start-master.sh'
 alias hdfs='~/hadoop/bin/hdfs'
 alias hadoop='~/hadoop/sbin/start-all.sh'
 alias startSparkAndHadoop='hadoop; spCluster;'
+
+alias testPart2='hdfs dfs -rm -f -r /user/cs4433/project3/output/part2a/;rm -f -r ~/shared_folder/output/part2a;spRun ./2-sql/part2.py ; hdfs dfs -get /user/cs4433/project3/output/part2a/ ~/shared_folder/output/'
