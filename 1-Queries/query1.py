@@ -1,7 +1,6 @@
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
 
-
 def main():
     # spark = SparkSession.builder.appName("query1").getOrCreate()
     sc = SparkContext(master="local[*]", appName="query1-1")
